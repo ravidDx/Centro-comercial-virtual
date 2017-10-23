@@ -1,0 +1,50 @@
+<!--
+  Generated template for the CardPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>card</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+
+  <ion-list>
+
+    <ion-item>
+      <ion-icon name="card" item-left></ion-icon>
+      <ion-label stacked>Card:</ion-label>
+      <ion-input [(ngModel)]="cardinfo.number" placeholder="**** **** **** ****"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-icon name="calendar" item-left></ion-icon>
+      <ion-label stacked>Expiry Month:</ion-label>
+      <ion-input [(ngModel)]="cardinfo.expMonth" placeholder="MM"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-icon name="calendar" item-left></ion-icon>
+      <ion-label stacked>Expiry Year:</ion-label>
+      <ion-input [(ngModel)]="cardinfo.expYear" placeholder="YY"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-icon name="lock" item-left></ion-icon>
+      <ion-label stacked>CVC:</ion-label>
+      <ion-input [(ngModel)]="cardinfo.cvc" placeholder="123"></ion-input>
+    </ion-item>
+    
+  </ion-list>
+
+	<br>
+
+  <button ion-button full icon-left (click)="pay()" color="primary"><ion-icon name="checkmark"></ion-icon>Page ${{total}} </button>
+
+</ion-content>

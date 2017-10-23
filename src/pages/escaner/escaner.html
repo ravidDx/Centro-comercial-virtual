@@ -1,0 +1,39 @@
+<!--
+  Generated template for the EscanerPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar color="primary">
+    <ion-title>Scaner</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <h3>Escanea el Codigo QR</h3>
+  <button ion-button full icon-left (click)="scanCode()" color="secondary"><ion-icon name="qr-scanner"></ion-icon>Scan Code</button>
+
+  <ion-thumbnail item-start>
+      <img center width="80%" src={{imgScanned}} alt="codigo_qr" style="margin-left: auto; margin-right: auto;">
+  </ion-thumbnail>
+
+  <ion-card *ngIf="scannedCode">
+    <ion-card-content>
+      Codigo: {{ scannedCode }}<br>
+      {{producto.name}}<br>
+      {{producto.description}}<br>
+      {{producto.price}}
+    </ion-card-content>
+  </ion-card>
+
+  <p>Desea realizar la compra?</p>
+  <div class="opcionesE">
+    <button ion-button (click)="comprar_si()"> Si</button>
+    <button ion-button (click)="comprar_no()"> No</button>
+  </div>
+
+</ion-content>

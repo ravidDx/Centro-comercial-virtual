@@ -1,0 +1,23 @@
+<ion-header>
+    <ion-navbar color="primary">
+        <ion-title>Perfil</ion-title>
+    </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+
+    <div class="perfil">
+        <img src="assets/img/perfil.png" width="40%">
+
+    </div>
+    <div>
+        <p> {{usuario.first_name}}  {{usuario.last_name}} </p>
+        <p> {{usuario.identification_card}}   </p>
+        <p> {{usuario.email}}   </p>
+    </div>
+    <div class="botonM">
+        <button ion-button (click)="modificarUsuario()">Modificar</button>
+    </div>
+
+
+</ion-content>

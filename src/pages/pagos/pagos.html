@@ -1,0 +1,46 @@
+<!--
+  Generated template for the PagosPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar color="secondary">
+    <ion-title>Pagos</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <br>
+  <h3>Realiza tu pago con</h3>
+  <br>
+
+  <div class="logo_pago">
+    <img src="assets/img/cifraseg.png" alt="">
+  </div>
+
+  <hr>
+  <br>
+
+  <ion-grid>
+  <ion-row>
+    <ion-col col-3>
+      <img src="assets/img/visa.png" width="80%" alt="logo_visa" (click)="carddetails()">
+    </ion-col>
+    <ion-col col-3>
+       <img src="assets/img/mastercard.png" width="80%" alt="logo_mastercard" (click)="carddetails()" >
+    </ion-col>
+    <ion-col col-3>
+      <img src="assets/img/americanExpress.png" width="80%" alt="logo_americanExpress"(click)="carddetails()">
+    </ion-col>
+    <ion-col col-3>
+       <img src="assets/img/diners.png" width="80%" alt="logo_diners"(click)="carddetails()">
+    </ion-col>
+  </ion-row>
+</ion-grid>
+
+
+</ion-content>

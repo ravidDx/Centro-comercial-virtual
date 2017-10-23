@@ -1,0 +1,62 @@
+<!--
+  Generated template for the LoginPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar color ="dark">
+    <ion-title text-center>Centro Comercial Virtual</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+
+	<ion-grid>
+	  <ion-row>
+	    <ion-col col-6>
+	    	<ion-thumbnail item-start>
+		      <img width="80%" src="assets/img/logo_capeipi.png" alt="logo_capeipi">
+		    </ion-thumbnail>
+	    </ion-col>
+	    <ion-col col-6>
+	    	<img width="80%" src="assets/img/logo_systeltronik.png" alt="logo_systeltronik">
+		</ion-col>
+	  </ion-row>
+	</ion-grid>
+	<hr>
+
+	<form padding [formGroup]="loginForm" (ngSubmit)="login()">
+		<ion-item>
+			<ion-label floating>EMAIL</ion-label>
+			<ion-input [formControl]="username" type="text"></ion-input>
+		</ion-item>
+		<ion-item>
+			<ion-label floating>PASSWORD</ion-label>
+			<ion-input [formControl]="password" type="password"></ion-input>
+		</ion-item>
+		<ion-item [hidden]="!errorMessage"><label>{{errorMessage}}</label></ion-item>
+	</form>
+
+	<div padding>
+		<button ion-button color="primary" block outline (click)="login()" [disabled]="!loginForm.valid">Entrar</button>
+	</div>
+
+	<div padding>
+		<ion-label text-center >Aun no tienes cuenta</ion-label>
+		<button ion-button color="dark" block outline (click)="registrar()">Registrate</button>
+	</div>
+
+	<!--
+
+	<div padding>
+		<ion-label text-center >Entrar</ion-label>
+		<button ion-button color="dark" block outline (click)="entrar()">Entrar</button>
+	</div>
+
+	-->
+
+</ion-content>
