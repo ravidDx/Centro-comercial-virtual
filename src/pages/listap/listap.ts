@@ -4,7 +4,7 @@ import { NavController} from 'ionic-angular';
 /* CRUD DATOS FIREBASE*/
 //import { AngularFireDatabase} from "angularfire2/database";
 //import { FirebaseListObservable} from "angularfire2/database";
-import { AlertController} from "ionic-angular";
+import { AlertController, App} from "ionic-angular";
 
 import { PagosPage} from "../pagos/pagos";
 import { UbicacionPage} from "../ubicacion/ubicacion";
@@ -50,7 +50,7 @@ export class ListapPage {
 
 
 
-  constructor(public navCtrl: NavController,private productoCtrl:ProductoProvider, private alertController:AlertController ) {
+  constructor(public navCtrl: NavController,private productoCtrl:ProductoProvider, private alertController:AlertController,public appCtrl:App ) {
 
     console.log("Constructor List Provider");
     this.productosList=this.productoCtrl.getProductosList();
@@ -168,14 +168,12 @@ export class ListapPage {
       updateProductModal);*/
   }
 
-
-
-  irPagar(){
-      this.navCtrl.push(PagosPage);
-
+ pagar(){
+      //this.navCtrl.push(PagosPage, {"data":this.totalPago} );
+      this.appCtrl.getRootNav().push(PagosPage, {"data":this.totalPago} );
   }
-
-
+  
+  
   private calcularPago() {
     this.totalPago=0;
     console.log(this.productosList);

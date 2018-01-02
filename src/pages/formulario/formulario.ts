@@ -52,14 +52,16 @@ export class FormularioPage {
   		nombres:['',Validators.required],
   		apellidos:['',Validators.required],
       direccion:['',Validators.required],
-      referencia:['',Validators.required],
       telefono:['',Validators.required],
   		cedula:['',Validators.required],
   		email:['',[Validators.required,Validators.email ]],
+      password: ['', Validators.required],
+      /*
   		passwordRetry: this.fb.group({
 	      password: ['', [Validators.required,Validators.pattern(/^[a-z0-9_-]{6,18}$/)] ],
 	      passwordConfirmation: ['', [Validators.required,Validators.pattern(/^[a-z0-9_-]{6,18}$/)] ]
 	    }),
+      */
   	});
   }
 
@@ -85,15 +87,14 @@ export class FormularioPage {
       "first_name": this.myForm.value.nombres,
       "last_name": this.myForm.value.apellidos,
       "address": this.myForm.value.direccion,
-      "reference": this.myForm.value.referencia,
+      //"reference": this.myForm.value.referencia,
       "phone_number": this.myForm.value.telefono,
       "identification_card": this.myForm.value.cedula,
-      "role": "undefined",
+      "role": "Usuario",
       "email": this.myForm.value.email,
       "password": this.myForm.value.passwordRetry.password,
       "active": "1"
     }
-
 
     this.usuarioCtrl.registrarUsuario(user).subscribe(
        res=>{

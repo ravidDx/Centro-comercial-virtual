@@ -10,7 +10,38 @@ page-home {
         text-align: center;
     }
     .botonM {
-        display: flex;
-        justify-content: center;
+        background-color: #061531;
     }
+
+    .toolbar-md {
+        min-height: 36px;
+    }
+
+    .modal{
+        overflow: scroll;
+        background-color: #f1eded;
+    }
+
+    .modal-wrapper{
+        background-color: #f1eded;
+        
+    }
+
+
+    .name{
+        position: fixed;
+        /* height: 72%; */
+        /* background-color: yellow; */
+        font-family: cursive;
+        color: navy;
+
+    }
+
+    .valor{
+        margin-left: 100px;
+        text-align: left;
+
+    }
+
+
 }

@@ -1,0 +1,59 @@
+<!--
+  Generated template for the ProductoPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+
+
+<ion-content padding style="margin-top: 34px">
+	<ion-card>
+		<ion-card-header style="text-align: -webkit-center;">
+			<ion-thumbnail item-start style="width: 70%;height: 70%;">
+		      <img width="80%" src={{producto.product_image}} alt="logo_capeipi">
+		    </ion-thumbnail>
+		    <br>
+		    <h1 class="precio">  $ {{producto.priceu}}</h1>
+		</ion-card-header>
+
+		<ion-title>{{producto.product_name}}</ion-title>
+
+		<ion-card-content>
+			{{producto.product_description}}
+			<hr>
+			<p>Descuento: {{producto.discount}}</p>
+			<p>Iva:       {{producto.iva}}</p>
+			<p>Stock:     {{producto.stock}}</p>
+
+		</ion-card-content>
+		
+
+	</ion-card>
+
+
+		
+
+</ion-content>
+
+<ion-footer>
+
+	<ion-grid>
+	    <ion-row>
+	      <ion-col col-6 style="text-align: -webkit-center;">
+	        <ion-thumbnail item-start>
+	          <img width="40%" src="assets/img/addCart.png" alt="logo_capeipi" (click)="comprar_si()">
+	        </ion-thumbnail>
+	      </ion-col>
+	      <ion-col col-6 style="text-align: -webkit-center;">
+	        <img width="40%" src="assets/img/quitCart.png" alt="logo_systeltronik" (click)="comprar_no()">
+	      </ion-col>
+	    </ion-row>
+	</ion-grid>
+
+
+</ion-footer>
+
+
+
+
+

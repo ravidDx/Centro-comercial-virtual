@@ -4,23 +4,59 @@
   See http://ionicframework.com/docs/components/#navigation for more info on
   Ionic pages and navigation.
 -->
-<ion-header>
-
-  <ion-navbar color="primary">
-    <ion-title>Scaner</ion-title>
-  </ion-navbar>
-
-</ion-header>
 
 
-<ion-content padding>
-  <h3>Escanea el Codigo QR</h3>
-  <button ion-button full icon-left (click)="scanCode()" color="secondary"><ion-icon name="qr-scanner"></ion-icon>Scan Code</button>
+<ion-content padding style="margin-top: 34px">
 
-  <ion-thumbnail item-start>
-      <img center width="80%" src={{imgScanned}} alt="codigo_qr" style="margin-left: auto; margin-right: auto;">
+  <ion-slides autoplay="5000" loop="true" speed="3000" style="max-height: 100px">
+    <ion-slide >
+      <img src="../../assets/img/slide1.jpg" style="width: 100% auto;" >
+   
+    </ion-slide>
+    <ion-slide >
+      <img src="../../assets/img/slide2.jpg" style="width: 100% auto;">
+
+    </ion-slide>
+    <ion-slide >
+      <img src="../../assets/img/slide3.jpg" style="width: 100% auto;">
+
+    </ion-slide>
+  </ion-slides>
+
+
+<!--
+  <ion-slides pager="true" parallax="true" padding>
+
+    <ion-slide>
+      <img src="assets/img/slide1.jpg">
+      <h1>Welcome to my app!</h1>
+    </ion-slide>
+
+    <ion-slide>
+      <img src="assets/img/slide2.jpg">
+      <h1>All of the features</h1>
+      <p>Here's what you can do with the app...</p>
+    </ion-slide>
+
+    <ion-slide>
+      <img src="assets/img/slide3.jpg">
+      <h1>Get started now!</h1>
+   
+    </ion-slide>
+
+  </ion-slides>
+
+-->
+
+
+  <br><br>
+  <button ion-button full icon-left (click)="scanCode()" color="qr"><ion-icon name="qr-scanner"></ion-icon>Escane Codigo QR</button>
+
+  <ion-thumbnail item-start style="margin-top: 15%">
+        <img class="img-qr" center width="80%" src={{imgScanned}} alt="codigo_qr" (click)="presentAlert()">
   </ion-thumbnail>
 
+<!--
   <ion-card *ngIf="scannedCode">
     <ion-card-content>
       Codigo: {{ scannedCode }}<br>
@@ -29,11 +65,35 @@
       {{producto.price}}
     </ion-card-content>
   </ion-card>
+-->
+  <br><br>
 
-  <p>Desea realizar la compra?</p>
-  <div class="opcionesE">
-    <button ion-button (click)="comprar_si()"> Si</button>
-    <button ion-button (click)="comprar_no()"> No</button>
-  </div>
+  <p>{{productoDescripcion}}</p>
+ 
+  <ion-grid>
+    <ion-row>
+      <ion-col col-6 style="text-align: -webkit-center;">
+        <ion-thumbnail item-start>
+          <img width="40%" src="assets/img/addCart.png" alt="logo_capeipi" (click)="comprar_si()">
+        </ion-thumbnail>
+      </ion-col>
+      <ion-col col-6 style="text-align: -webkit-center;">
+        <img width="40%" src="assets/img/quitCart.png" alt="logo_systeltronik" (click)="comprar_no()">
+    </ion-col>
+    </ion-row>
+  </ion-grid>
 
 </ion-content>
+
+  
+<ion-footer>
+  <ion-toolbar>
+    <button ion-button style="background-color: transparent; position: fixed; height: unset; " >
+      <ion-icon name="cart">  {{numProductos}} </ion-icon>
+    </button>
+    <ion-title text-center style="font-family: -webkit-pictograph">Total a pagar: $ {{total}} </ion-title>      
+  </ion-toolbar>
+</ion-footer>
+
+
+

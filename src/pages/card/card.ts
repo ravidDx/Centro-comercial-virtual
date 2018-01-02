@@ -4,6 +4,9 @@ import { IonicPage, NavController, NavParams ,LoadingController} from 'ionic-ang
 import { Stripe } from '@ionic-native/stripe';
 import { Http, Headers } from '@angular/http';
 
+//Importando servicio
+import {ProductoProvider} from '../../providers/producto/producto';
+
 /**
  * Generated class for the CardPage page.
  *
@@ -25,9 +28,15 @@ export class CardPage {
     cvc: ''
   }
 
-  total=25.00;
+  total=0.00;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams,public stripe: Stripe, public http: Http,public loadingCtrl: LoadingController) {
+  constructor(public navCtrl: NavController,
+              public navParams: NavParams,
+              public stripe: Stripe, 
+              public http: Http,
+              public loadingCtrl: LoadingController,
+              private productoCtrl:ProductoProvider) {
+    this.total=this.navParams.get("data");
   }
 
   ionViewDidLoad() {
@@ -55,8 +64,8 @@ export class CardPage {
 
              console.log(token.id);
              loading.dismiss();
-             alert('transaction Successfull!!')  
-          
+             alert('transaction Successfull!!');
+             this.productoCtrl.eliminarProductosList();          
              }
 
           )

@@ -24,12 +24,20 @@ import { UbicacionPage} from "../pages/ubicacion/ubicacion";
 import {FormularioPage} from '../pages/formulario/formulario'
 import { LoginPage } from '../pages/login/login';
 import {CardPage} from '../pages/card/card';
-
+import {MenuPage} from '../pages/menu/menu';
+import {CatalogoPage} from '../pages/catalogo/catalogo';
+import {ProductoPage} from '../pages/producto/producto';
 
 /*Servicio*/
 import { UsuarioProvider } from '../providers/usuario/usuario';
 import {HttpModule} from '@angular/http';
 import { ProductoProvider } from '../providers/producto/producto';
+import { CatalogoProvider } from '../providers/catalogo/catalogo';
+
+import { GoogleMaps } from '@ionic-native/google-maps';
+//slider
+//import { Storage } from '@ionic/storage';
+
 
 const cloudSettings:CloudSettings={
   'core':{
@@ -51,7 +59,10 @@ const cloudSettings:CloudSettings={
     UbicacionPage,
     LoginPage,
     FormularioPage,
-    CardPage
+    CardPage,
+    MenuPage,
+    CatalogoPage,
+    ProductoPage
   ],
   imports: [
     BrowserModule,
@@ -72,16 +83,23 @@ const cloudSettings:CloudSettings={
     UbicacionPage,
     LoginPage,
     FormularioPage,
-    CardPage
+    CardPage,
+    MenuPage,
+    CatalogoPage,
+    ProductoPage
   ],
   providers: [
+    //Storage,
     StatusBar,
     SplashScreen,
     BarcodeScanner,
     UsuarioProvider,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     ProductoProvider,
-    Stripe
+    Stripe,
+    CatalogoProvider,
+    GoogleMaps,
+
   ]
 
 })

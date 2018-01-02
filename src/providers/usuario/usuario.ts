@@ -17,11 +17,15 @@ export class UsuarioProvider {
 
 
   /*Servicio Restfull Cake PHP BD: MSQL*/
-  url:string = "http://servicios-raulbastidas654549.codeanyapp.com/users1.json";	
-  url2:string = "http://servicios-raulbastidas654549.codeanyapp.com/users1/edit/";
+  //url:string = "http://servicios-raulbastidas654549.codeanyapp.com/users1.json";	
+ // url2:string = "http://servicios-raulbastidas654549.codeanyapp.com/users1/edit/";
    /*Servicio Restfull Cake PHP BD: PostgreSQL*/	
   //url:string = "http://tiendavirtual.local/users.json";  
   //url2:string = "http://tiendavirtual.local/users/edit/"; 
+
+  /*Servicio Restfull Laravel PHP BD: PostgreSQL*/ 
+  url:string = "http://127.0.0.1:8000/api/user/";
+  url2:string = "http://127.0.0.1:8000/user_api/"; 
  
 
   constructor(public http: Http,private toastCtrl:ToastController) {
@@ -30,29 +34,15 @@ export class UsuarioProvider {
   }
 
   obtenerUsuarios(email:string,password:string){
-  	console.log("Obtener Usuarios");
+  	
     console.log(email);
     console.log(password);
-    let access;
-  	return this.http.get(this.url).map(
+ 
+  	return this.http.get(this.url+email+"%20"+password).map(
   		res => {
-  			console.log("Consulta Get Usuario");
+  			console.log("Obtener Usuarios");
         let array = res.json();
-        let user;
-        for(let key in array['users1']) {
-           if(email === array['users1'][key].email  && password === array['users1'][key].password ){
-             console.log("True");
-             access=true;
-             user = array['users1'][key];
-             break;
-           }else{
-             console.log("False");
-              user = null;
-              access=true;
-           }
-        }
-        console.log(user)
-  			return user;
+  			return array;
   		},
       err=>{
         console.error(err);
@@ -73,8 +63,7 @@ export class UsuarioProvider {
     console.log(usuario);
     return this.http.post(this.url,usuario,options).map(
       res =>{
-        console.log("solicitud recibida");
-        console.log(res.json());
+        console.log("¡ Solicitud recibida !");
         return res.json();
       },
       err =>{

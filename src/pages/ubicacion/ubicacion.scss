@@ -11,4 +11,16 @@ page-ubicacion {
   .autor {
     text-align: center;
   }
+
+
+  .toolbar-md {
+      min-height: 36px;
+  }
+
+  #map_canvas{
+    display: block;
+    height: 100%;
+    width: 100%;
+  }
+    
 }

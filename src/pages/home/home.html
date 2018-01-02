@@ -1,23 +1,62 @@
 <ion-header>
-    <ion-navbar color="primary">
-        <ion-title>Perfil</ion-title>
-    </ion-navbar>
+      <ion-navbar color="dark">
+        <ion-title >Perfil</ion-title>
+      </ion-navbar>
+
 </ion-header>
 
 <ion-content padding>
 
     <div class="perfil">
-        <img src="assets/img/perfil.png" width="40%">
+        <img src="assets/img/perfil.png" width="25%">
+    </div>
+    <br>
 
-    </div>
-    <div>
-        <p> {{usuario.first_name}}  {{usuario.last_name}} </p>
-        <p> {{usuario.identification_card}}   </p>
-        <p> {{usuario.email}}   </p>
-    </div>
-    <div class="botonM">
-        <button ion-button (click)="modificarUsuario()">Modificar</button>
-    </div>
+    <ion-item>
+        <h2 class="name">Nombres</h2>
+        <p class="valor"> {{usuario.first_name}}</p>
+        <ion-icon name="create" item-right (click)="modificarUsuario(usuario.first_name, 'Nombres')"></ion-icon>    
+    </ion-item>
+    <ion-item>
+        <h2 class="name" >Apellidos</h2>
+        <p class="valor" >{{usuario.last_name}}</p>
+        <ion-icon name="create" item-right (click)="modificarUsuario(usuario.last_name , 'Apellidos')"></ion-icon>    
+    </ion-item>
+    <ion-item>
+        <h2 class="name">Cedula </h2>
+        <p class="valor" > {{usuario.identification_card}}</p>
+        <ion-icon name="create" item-right (click)="modificarUsuario(usuario.identification_card, 'Cedula')" ></ion-icon>  
+    </ion-item>
+    <ion-item>
+        <h2 class="name" >Email</h2>
+        <p class="valor" >{{usuario.email}}</p>
+        <ion-icon name="create" item-right (click)="modificarUsuario(usuario.email , 'Email')" ></ion-icon>  
+    </ion-item>
+    <ion-item>
+        <h2 class="name" >Direccion</h2>
+        <p class="valor" >{{usuario.address}}</p>
+        <ion-icon name="create" item-right (click)="modificarUsuario(usuario.address , 'Dirección')"></ion-icon>  
+    </ion-item>
+    <ion-item>
+        <h2 class="name" >Referencia</h2>
+        <p class="valor">{{usuario.reference}}</p>
+        <ion-icon name="create" item-right (click)="modificarUsuario(usuario.reference, 'Referencia')" ></ion-icon>  
+    </ion-item>
+    <ion-item>
+        <h2 class="name" >Telefono</h2>
+        <p class="valor" >{{usuario.phone_number}}</p>
+        <ion-icon name="create" item-right (click)="modificarUsuario(usuario.phone_number, 'Teléfono')" ></ion-icon>  
+    </ion-item>
+    <ion-item>
+        <h2 class="name" >Password </h2>
+        <p class="valor" >{{usuario.password}}</p>
+        <ion-icon name="create" item-right (click)="modificarUsuario(usuario.password , 'Password')" ></ion-icon>  
+    </ion-item>
+
+    <!--
+    <button ion-button full class="botonM" (click)="modificarUsuario()">Modificar</button>
+    -->
+    
 
 
 </ion-content>

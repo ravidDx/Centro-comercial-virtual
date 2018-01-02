@@ -7,10 +7,13 @@ page-listap {
     text-align: center;
   }*/
   .pagarB{
-    position:absolute;
-    width:100%; left:0;
-    text-align:center;
-    margin:auto;
+    font-family: monospace;
+    color: tomato;
+  }
+
+  .titulo{
+    text-align: center;
+    font-family: cursive;
   }
 
 }

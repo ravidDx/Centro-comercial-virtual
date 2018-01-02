@@ -6,6 +6,7 @@ import {FormBuilder, FormGroup, Validators, AbstractControl} from '@angular/form
 import { FormularioPage } from '../formulario/formulario';
 import { HomePage } from '../home/home';
 import { TabsPage } from '../tabs/tabs';
+import { MenuPage } from '../menu/menu';
 
 //Importando sefvicio
 import {UsuarioProvider} from '../../providers/usuario/usuario';
@@ -28,15 +29,11 @@ import {UsuarioProvider} from '../../providers/usuario/usuario';
 
 export class LoginPage {
 
-  
-
   username: AbstractControl;
   password:AbstractControl;
   errorMessage:string = null;
   loginForm : FormGroup;	
-
-
- 
+  hidden=true;
 
   constructor(public navCtrl: NavController, 
   		 	      public navParams: NavParams,
@@ -63,9 +60,7 @@ export class LoginPage {
   private login() {
   	//logica de validación acá
     console.log("Iniciar Sesion");
-    console.dir(this.username.value);
-    console.dir(this.password.value);
-
+    
       let loading = this.loadingCtrl.create({
           content: 'Por favor espere...'
       });
@@ -74,34 +69,25 @@ export class LoginPage {
 
     this.usuarioCtrl.obtenerUsuarios(this.username.value,this.password.value).subscribe(
       data=>{
-        console.log("Consulta Exitosa");
+      
+        loading.dismiss();
+       
 
-           if(data!=null){
-             console.log("TRUE");
-            // console.log(this.auth.isAuthenticated());
-
-            /*
-             
-            this.auth.login('basic', {'email':this.username.value, 'password':this.password.value}).then(() => {
-              console.log('ok i guess?');
-              this.loading.dismissAll();
-              this.navCtrl.setRoot(TabsPage,{'parametro':data});      
-            });
-            */
-
-             loading.dismiss();
-             this.navCtrl.setRoot(TabsPage,{'parametro':data});
+           if(data.status=='200'){
+             console.log("ok");
+             console.log(data);
+             this.navCtrl.setRoot(MenuPage,{'parametro':data});
              
            }else{
-             console.log("FALSE");
-             //console.log(this.auth.isAuthenticated());
-             loading.dismissAll();
-             
+             console.log("err");
+             this.errorMessage=data.msg;          
            }
 
+           
       },
       err=>{
         console.error("err");
+        this.errorMessage=err;
         loading.dismiss();
       }
     );

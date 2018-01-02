@@ -4,18 +4,10 @@
   See http://ionicframework.com/docs/components/#navigation for more info on
   Ionic pages and navigation.
 -->
-<ion-header>
 
-  <ion-navbar color ="dark">
-    <ion-title text-center>Centro Comercial Virtual</ion-title>
-  </ion-navbar>
-
-</ion-header>
-
-
-<ion-content padding>
-
-	<ion-grid>
+<!--
+<ion-header style=" background-color: whitesmoke;">
+	<ion-grid style="text-align: -webkit-center;">
 	  <ion-row>
 	    <ion-col col-6>
 	    	<ion-thumbnail item-start>
@@ -27,28 +19,42 @@
 		</ion-col>
 	  </ion-row>
 	</ion-grid>
-	<hr>
+</ion-header>
+-->
+
+
+<ion-content padding style="background-image: url('assets/img/fondo_inicio.png');background-repeat: no-repeat;background-size: cover; background-position: center;">
+
+	<ion-grid style="text-align: -webkit-center;">
+	  <ion-row>
+	    <ion-col col-12>
+	    	<ion-thumbnail item-start>
+		      <img width="80%" src="assets/img/logo.png" style="margin-top:50px;margin-bottom:50px;"alt="logo_merkato">
+		    </ion-thumbnail>
+	    </ion-col>
+	  </ion-row>
+	</ion-grid>
+
+
 
 	<form padding [formGroup]="loginForm" (ngSubmit)="login()">
-		<ion-item>
-			<ion-label floating>EMAIL</ion-label>
-			<ion-input [formControl]="username" type="text"></ion-input>
+		<ion-item class="item-login">
+			<ion-label floating style="color: white ;font-family: monospace;font-size: larger;">EMAIL</ion-label>
+			<ion-input type="email" style="color: #FADBD8;font-family: sans-serif;" [formControl]="username" ></ion-input>
 		</ion-item>
-		<ion-item>
-			<ion-label floating>PASSWORD</ion-label>
-			<ion-input [formControl]="password" type="password"></ion-input>
+		<ion-item class="item-login" >
+			<ion-label floating style="color: white;font-family: monospace;font-size: larger;">PASSWORD</ion-label>
+			<ion-input [formControl]="password" type="password" style="color: #FADBD8;font-family: sans-serif;"></ion-input>
 		</ion-item>
-		<ion-item [hidden]="!errorMessage"><label>{{errorMessage}}</label></ion-item>
+		<ion-item style="background-color: transparent" [hidden]="!errorMessage"><label style="background-color: #7F192E; color:#E6B0AA" >{{errorMessage}}</label></ion-item>
 	</form>
 
-	<div padding>
-		<button ion-button color="primary" block outline (click)="login()" [disabled]="!loginForm.valid">Entrar</button>
+	<div padding style="background-color: transparent;text-align: center;">
+		<button  ion-button block  style="background-color: #7F192E" color="menu" (click)="login()" [disabled]="!loginForm.valid">Entrar</button>
+		<br>
+		<a (click)="registrar()"> <span style="color: white;font-family: monospace;font-size: larger;">No tienes una cuenta?</span> Registrate ahora</a>
 	</div>
 
-	<div padding>
-		<ion-label text-center >Aun no tienes cuenta</ion-label>
-		<button ion-button color="dark" block outline (click)="registrar()">Registrate</button>
-	</div>
 
 	<!--
 
@@ -60,3 +66,7 @@
 	-->
 
 </ion-content>
+
+
+
+

@@ -16,8 +16,10 @@ import { CardPage } from '../card/card';
   templateUrl: 'pagos.html',
 })
 export class PagosPage {
+  totalPagar:any;
 
-  constructor( public navCtrl: NavController) {
+  constructor( public navCtrl: NavController, public navParams:NavParams) {
+    this.totalPagar=this.navParams.get("data");
   }
 
   ionViewDidLoad() {
@@ -26,7 +28,7 @@ export class PagosPage {
 
 
   carddetails() {
-    this.navCtrl.push(CardPage);
+    this.navCtrl.push(CardPage,{"data":this.totalPagar});
   }
 
 
